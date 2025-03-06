@@ -4,7 +4,8 @@ export interface UserPropsEntity {
   emailValidated: boolean;
   createdAt: Date;
   uid: string;
-  displayName: string
+  displayName: string;
+  token?: string;
 }
 
 export type Role = "admin" | "user" | "guest";

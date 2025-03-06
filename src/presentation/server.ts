@@ -24,6 +24,5 @@ export class Server {
     });
 
     this.app.use(this.routes);
-    // this.app.post("/users", UserControllers.addUser);
   }
 }

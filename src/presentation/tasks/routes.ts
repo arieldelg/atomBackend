@@ -14,8 +14,13 @@ export class TaskRoutes {
     router.use(TaskDtos.verifyHeader);
 
     router.get("/", taskControllers.getTasks);
-    router.post("/", TaskDtos.verifyDataCreationTask, taskControllers.addTask);
-    router.put("/:id", taskControllers.updateTask);
+    router.post("/", TaskDtos.verifyDataTaskCreation, taskControllers.addTask);
+
+    router.put(
+      "/:id",
+      TaskDtos.verifyDataTaskUpdate,
+      taskControllers.updateTask
+    );
     router.delete("/:id", taskControllers.deleteTask);
 
     return router;

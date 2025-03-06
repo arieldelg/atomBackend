@@ -4,7 +4,6 @@ export interface Task {
   createdAt: Date;
   updatedAt: Date;
   completed: boolean;
-  pending: boolean;
   id?: string;
   uid: string;
 }
@@ -31,7 +30,21 @@ export interface UpdateTaskKeys {
   createdAt?: Date;
   completed?: boolean;
   updatedAt?: Date;
-  pending?: boolean
+  uid: string;
 }
 
-export type CreationTaskKeys = "title" | "description" | "completed" | "pending"
+export type CreationTaskKeys = "title" | "description" | "completed" | "uid";
+
+export enum TaskEnum {
+  "title",
+  "description",
+  "completed",
+  "uid",
+}
+
+export const taskMap: Record<CreationTaskKeys, string> = {
+  completed: "boolean",
+  description: "string",
+  title: "string",
+  uid: "string",
+};

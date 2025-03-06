@@ -1,18 +1,14 @@
-import {
-  AddTask,
-  GetAllTasks,
-  ResponseHTTP,
-  Task,
-  UpdateTask,
-  UpdateTaskKeys,
-} from "../../types";
+import { WriteResult } from "firebase-admin/firestore";
+import { Task, UpdateTaskKeys } from "../../types";
 
 export abstract class TaskRepository {
-  abstract addTask(task: Task): Promise<AddTask>;
-  abstract getTasks(uid: string): Promise<GetAllTasks>;
+  abstract addTask(task: Task): Promise<WriteResult>;
+  abstract getTasks(uid: string): Promise<Task[]>;
   abstract updateTask(
     idTask: string,
     update: UpdateTaskKeys
-  ): Promise<UpdateTask>;
-  abstract deleteTask(idTask: string): Promise<ResponseHTTP>;
+  ): Promise<WriteResult>;
+  abstract deleteTask(
+    idTask: string
+  ): Promise<{ ok: boolean; message: string }>;
 }

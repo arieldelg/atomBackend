@@ -6,5 +6,9 @@ export interface UserProps {
 
 export interface GetUserProps {
   email: string;
-  password: string;
+}
+
+export interface EmailVerification {
+  ok: boolean;
+  message: string;
 }

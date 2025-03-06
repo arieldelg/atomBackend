@@ -15,6 +15,11 @@ export class UserRoutes {
       UserDtos.verifyEmailDoesNotExist,
       userControllers.getUser
     );
+    router.get("/verifyEmail/:email", userControllers.emailExist);
+
+    /**
+     * @deprecated usa firebase auth del lado del cliente para crear usuario
+     */
     router.post("/", UserDtos.verifyUserAndEmailExist, userControllers.addUser);
 
     return router;
